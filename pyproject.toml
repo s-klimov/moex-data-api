@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "moex-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["Sergey Klimov <ksiu@pkzdrav.ru>"]
+readme = "README.md"
+packages = [{include = "moex_fastapi"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.2"
+finam-trade-api = "^2.1.1"
+uvicorn = "^0.27.1"
+pandas = "^2.2.0"
+stockstats = "^0.6.2"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+black = "^24.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
