@@ -1,2 +1,3 @@
 .env
 .idea/
+/moex_fastapi/.pytest_cache/

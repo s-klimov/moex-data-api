@@ -49,6 +49,9 @@ uvicorn main:app --host 0.0.0.0 --port 5000 --reload
 pytest -v -p no:warnings
 ```
 
+### Ознакомьтесь в автодокументацией
+Документация разработанных методов доступна по урлу [/docs](http://0.0.0.0:5000/docs)
+
 ## Используемый стек
 
 * [fastapi](https://fastapi.tiangolo.com/) - FastAPI framework, high performance, easy to learn, fast to code, ready for production

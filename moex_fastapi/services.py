@@ -1,7 +1,7 @@
 import os
 from datetime import datetime as dt, timedelta
 from stockstats import wrap
-from typing import List, Mapping, Callable, Any
+from typing import List
 
 import pandas as pd
 
@@ -30,21 +30,6 @@ async def get_hourly_candles(board: str, code: str) -> List[IntraDayCandle]:
         count=hours,
     )
     return await client.candles.get_in_day_candles(params)
-
-
-class NumberCandle:
-
-    def __init__(self, candle: IntraDayCandle):
-        self.__candle = candle
-
-    def to_json(self) -> Mapping:
-        get_number: Callable[[Any, Any], float | Any] = lambda num, scale: num / (10**scale)
-
-        return {
-            "high": get_number(self.__candle.high.num, self.__candle.high.scale),
-            "low": get_number(self.__candle.low.num, self.__candle.low.scale),
-            "timestamp": self.__candle.timestamp,
-        }
 
 
 async def get_days_candles(board: str, code: str):
