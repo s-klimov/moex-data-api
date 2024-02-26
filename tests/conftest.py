@@ -1,6 +1,14 @@
+from fastapi.testclient import TestClient
 import pytest
 
 from finam_trade_api.candles import IntraDayCandle, Decimal, DayCandle
+from main import app
+
+
+@pytest.fixture
+def client():
+    client = TestClient(app)
+    yield client
 
 
 @pytest.fixture(scope="module")
