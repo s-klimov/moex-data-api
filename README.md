@@ -52,6 +52,18 @@ pytest -v -p no:warnings
 ### Ознакомьтесь в автодокументацией
 Документация разработанных методов доступна по урлу [/docs](http://0.0.0.0:5000/docs)
 
+## Запуск проекта в контейнере
+
+### Сборка образа    
+```shell
+docker build -t moex-api-image .
+```  
+
+### Запуск контейнера
+```shell
+docker run -d --name moex-api-server -p 80:80 moex-api-image
+```
+
 ## Используемый стек
 
 * [fastapi](https://fastapi.tiangolo.com/) - FastAPI framework, high performance, easy to learn, fast to code, ready for production

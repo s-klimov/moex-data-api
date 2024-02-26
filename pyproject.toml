@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Sergey Klimov <ksiu@pkzdrav.ru>"]
 readme = "README.md"
-packages = [{include = "moex_fastapi"}]
+packages = [{include = "app"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
