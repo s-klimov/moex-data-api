@@ -10,7 +10,9 @@ client = TestClient(app)
 fixture_day_candles = {}
 
 
-def test_read_main(monkeypatch, intra_day_candles):
+def test_get_candles(monkeypatch, intra_day_candles):
+    """Тестируем ендпойнт /api/candles/"""
+
     async def mockreturn(*_):
         return intra_day_candles
 
@@ -38,4 +40,14 @@ def test_read_main(monkeypatch, intra_day_candles):
     }
 
 
-# TODO сделать тест второго метода.
+def test_get_rsi(monkeypatch, daily_candles):
+    """Тестируем ендпойнт /api/rsi/"""
+
+    async def mockreturn(*_):
+        return daily_candles
+
+    monkeypatch.setattr(CandlesClient, "get_day_candles", mockreturn)
+
+    response = client.get("/api/rsi/?board=TQBR&code=LKOH")
+    assert response.status_code == 200
+    assert response.json() == {"date": "2024-02-22", "rsi_14": 45.141565255351416}
