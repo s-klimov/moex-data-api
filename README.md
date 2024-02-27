@@ -61,8 +61,9 @@ docker build -t moex-api-image .
 
 ### Запуск контейнера
 ```shell
-docker run -d --name moex-api-server -p 80:80 moex-api-image
-```
+docker run -d -e "moex_access_token=CGHP06mYARoQqbS-zCtGuKilWljdqILPOW4ZhBOUK1z0" --name moex-api-server -p 80:80 moex-api-image
+```  
+Значение токена указано для примера. Используйте свой токен.  
 
 ## Используемый стек
 
