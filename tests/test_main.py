@@ -15,20 +15,20 @@ def test_get_candles(client, route, monkeypatch, intra_day_candles):
     assert response.status_code == 200
     assert response.json() == {
         "prev_bar": {
-            "close": 79.78,
-            "high": 79.92,
-            "low": 79.62,
-            "open": 79.82,
-            "timestamp": "2024-02-07T13:00:00Z",
-            "volume": 14719,
+            "close": intra_day_candles[-3].close.num / 10 ** intra_day_candles[-3].close.scale,
+            "high": intra_day_candles[-3].high.num / 10 ** intra_day_candles[-3].high.scale,
+            "low": intra_day_candles[-3].low.num / 10 ** intra_day_candles[-3].low.scale,
+            "open": intra_day_candles[-3].open.num / 10 ** intra_day_candles[-3].open.scale,
+            "timestamp": intra_day_candles[-3].timestamp,
+            "volume": intra_day_candles[-3].volume,
         },
         "last_bar": {
-            "close": 79.58,
-            "high": 79.94,
-            "low": 79.55,
-            "open": 79.78,
-            "timestamp": "2024-02-07T14:00:00Z",
-            "volume": 22792,
+            "close": intra_day_candles[-2].close.num / 10 ** intra_day_candles[-2].close.scale,
+            "high": intra_day_candles[-2].high.num / 10 ** intra_day_candles[-2].high.scale,
+            "low": intra_day_candles[-2].low.num / 10 ** intra_day_candles[-2].low.scale,
+            "open": intra_day_candles[-2].open.num / 10 ** intra_day_candles[-2].open.scale,
+            "timestamp": intra_day_candles[-2].timestamp,
+            "volume": intra_day_candles[-2].volume,
         },
     }
 
